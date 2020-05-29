@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>RE Photo Editor+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="w3-container" style="background-color: #35353c; position:relative">
+ <h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444"><small><center>Automated Real Estate Photography Editing App - Powered by Yellit Media </center></small></h1>
+</div>
+
+<div class="w3-light-grey w3-animate-zoom" style="padding:20px 50px;
+background-size:cover;">
+
+<div class="container">
+        <div class="formBox">
+            <form id="upload-file" method="post" enctype="multipart/form-data" action="{{ url_for('process_images') }}">
+                <div class="formField" align="center">
+                    <input name="file" type="file">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <center>{{ message }}</center>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+    {% block body %}{% endblock %}
+</div>
+</div>
+
+
+</body>
+</html>
